@@ -1,0 +1,13 @@
+{% extends 'patient/layout.html' %}
+{% load static %}
+
+{% block body %}
+    <form action="{% url 'patient:index' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table class="table">{{ form.as_table }}</table>
+        <input class="btn btn-primary" type="submit">
+    </form>
+    {% if showDownload %}
+        <a href="{% static 'patient/'|add:fname %}" download="{{ fname }}">Download</a>
+    {% endif %}
+{% endblock %}

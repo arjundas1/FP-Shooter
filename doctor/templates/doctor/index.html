@@ -1,0 +1,15 @@
+{% extends 'doctor/layout.html' %}
+
+{% block body %}
+    <form action="{% url 'doctor:index' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table class="table">{{ form.as_table }}</table>
+        <input class="btn btn-primary" type="submit">
+    </form>
+    {% if showButton %}
+        <a href="{% url 'doctor:analyze' %}">Analyze</a>
+    {% endif %}
+    {% if showAnalysis %}
+        {{ data }}
+    {% endif %}
+{% endblock %}
