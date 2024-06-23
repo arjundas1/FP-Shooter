@@ -1,15 +1,28 @@
-{% extends 'doctor/layout.html' %}
-
-{% block body %}
-    <form action="{% url 'doctor:index' %}" method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <table class="table">{{ form.as_table }}</table>
-        <input class="btn btn-primary" type="submit">
-    </form>
-    {% if showButton %}
-        <a href="{% url 'doctor:analyze' %}">Analyze</a>
-    {% endif %}
-    {% if showAnalysis %}
-        {{ data }}
-    {% endif %}
-{% endblock %}
+{% extends 'doctor/layout.html' %} {% block body %}
+<form
+  style="
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    padding: 32px 0px;
+    border-radius: 8px;
+    background-color: white;
+  "
+  action="{% url 'doctor:index' %}"
+  method="POST"
+  enctype="multipart/form-data"
+>
+  {% csrf_token %}
+  <table
+    style="display: flex; justify-content: center; margin-left: 80px"
+    class="table"
+  >
+    {{ form.as_table }}
+  </table>
+  <input style="width: 160px" class="btn btn-primary" type="submit" />
+</form>
+{% if showButton %}
+<a href="{% url 'doctor:analyze' %}">Analyze</a>
+{% endif %} {% if showAnalysis %} {{ data }} {% endif %} {% endblock %}

@@ -118,7 +118,8 @@ def decrypt():
     img = cv2.imread(path)
     print(img)
     obj = Project(img)
-    return obj.decode_text()
+    s = "According to the model, the probability that this image indicates ALL is " + str(float(obj.decode_text())*100)+ "%"
+    return s
 
 def index(request):
     if request.method == 'POST':

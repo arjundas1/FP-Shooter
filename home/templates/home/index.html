@@ -1,20 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <div>
-        For Patient
-        <a href="{% url 'patient:index' %}">Analyze Your Report</a>
+    <style>
+      * {
+        margin: 0;
+        border: 0;
+      }
+      h3 {
+        display: inline;
+      }
+      .parent_container {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        height: 100vh;
+        background: rgb(105, 30, 3);
+        position: relative;
+      }
+
+      .parent_container > h3 {
+        position: absolute;
+        top: 90px;
+        font-size: 32px;
+        color: white;
+      }
+
+      .main_container {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        width: 50%;
+        height: 30%;
+        padding: 20px 0;
+        border-radius: 20px;
+        justify-content: center;
+        background-color: white;
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+      }
+      .child_container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+      button {
+        padding: 8px 10px;
+        border-radius: 4px;
+        font-weight: 400;
+        font-size: 12px;
+        background-color: #034e8f;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent_container">
+      <h3>Medical Application for Leukemia Classification</h3>
+      <div class="main_container">
+        <div class="child_container">
+          <h3>For Patients</h3>
+
+          <a href="{% url 'patient:index' %}">
+            <button>Analyze Your Report</button>
+          </a>
+        </div>
+        <div class="child_container">
+          <h3>For Doctors</h3>
+          <a href="{% url 'doctor:index' %}">
+            <button>Infer from the Report</button>
+          </a>
+        </div>
+      </div>
     </div>
-    <hr>
-    <div>
-        For Doctor
-        <a href="{% url 'doctor:index' %}">Infer Report</a>
-    </div>
-</body>
+  </body>
 </html>
